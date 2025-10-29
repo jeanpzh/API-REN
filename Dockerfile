@@ -6,10 +6,8 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
 
-COPY ./ner_model ./ner_model
-
-COPY app.py .
+COPY src/app.py .
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8000"]
